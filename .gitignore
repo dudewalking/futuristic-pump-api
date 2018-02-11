@@ -1,0 +1,13 @@
+#dependencies
+/node_modules
+
+#idea setting
+/.idea
+
+#mongo data directory
+/data
+
+#configuration for local development
+config.json
+
+*.iml

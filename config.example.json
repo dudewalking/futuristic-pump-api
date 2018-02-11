@@ -1,0 +1,22 @@
+{
+  "local": {
+    "mongo": {
+      "url": "mongodb://mongo:27017",
+      "database": "localDbName"
+    },
+    "server": {
+      "url": "localhost",
+      "port": "8000"
+    }
+  },
+  "development": {
+    "mongo": {
+      "url": "mongodb://mongo:27017",
+      "database": "developmentDbName"
+    },
+    "server": {
+      "url": "http://dev-server.com",
+      "port": "8000"
+    }
+  }
+}

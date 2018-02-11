@@ -1,0 +1,11 @@
+# ---- Dependencies ----
+FROM node:8.4.0 AS build
+WORKDIR /app/
+COPY . .
+RUN npm install --quiet
+
+# ---- Release ----
+FROM mhart/alpine-node:8.4
+WORKDIR /app/
+COPY --from=build /app/ .
+CMD ["npm", "run", "api"]

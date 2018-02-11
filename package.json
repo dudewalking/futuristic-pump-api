@@ -1,0 +1,32 @@
+{
+  "name": "futuristic-pump-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "api": "nodemon src/app.js",
+    "build-docker-local": "docker build -t pump_local -f Dockerfile.local . && docker system prune -f",
+    "local": "docker-compose up api",
+    "prettier": "prettier --write src/**/*.js",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{js,json,css}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "express": "^4.16.2",
+    "express-healthcheck": "^0.1.0",
+    "mongoose": "^5.0.4",
+    "nodemon": "^1.14.12"
+  },
+  "devDependencies": {
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.10.2"
+  }
+}
