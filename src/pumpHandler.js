@@ -40,9 +40,9 @@ const startProcess = (ws, timerId, height, action) => {
     pressure = Math.floor(density * aog * height);
     volume = Math.floor(pumpWidth * pumpLength * height);
 
-    dataObj.temperature = temperature;
-    dataObj.pressure = pressure;
-    dataObj.volume = volume;
+    dataObj.temperature = height > 0 ? temperature : 0;
+    dataObj.pressure = height > 0 ? pressure : 0;
+    dataObj.volume = height > 0 ? volume : 0;
     dataObj.height = height.toFixed(2);
 
     ws.send(JSON.stringify(dataObj));
@@ -52,7 +52,7 @@ const startProcess = (ws, timerId, height, action) => {
 };
 
 const generateRandomValue = (min, max) => {
-  return Math.floor(Math.random() * (max - min)) + min;
+  return Math.random() * (max - min) + min;
 };
 
 module.exports = startProcess;
