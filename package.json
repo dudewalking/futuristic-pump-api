@@ -20,8 +20,14 @@
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "compression": "^1.7.2",
+    "cors": "^2.8.4",
     "express": "^4.16.2",
     "express-healthcheck": "^0.1.0",
+    "express-session": "^1.15.6",
+    "helmet": "^3.12.0",
+    "lodash": "^4.17.5",
     "mongoose": "^5.0.4",
     "nodemon": "^1.14.12",
     "ws": "^4.0.0"

@@ -4,6 +4,9 @@
 #idea setting
 /.idea
 
+#vscode setting
+/.vscode
+
 #mongo data directory
 /data
 

@@ -3,6 +3,9 @@ const express = require("express"),
   http = require("http"),
   WebSocket = require("ws"),
   config = require("../config"),
+  { getMiddlewares } = require('./middleware'),
+  { getApiRoutes } = require('./route'),
+  { API_PREFIX, API_V1} = require('./helpers/consts'),
   mongoConfig = config[process.env.NODE_ENV].mongo,
   serverConfig = config[process.env.NODE_ENV].server,
   mongoose = require("mongoose"),
@@ -10,6 +13,9 @@ const express = require("express"),
 
 mongoose.connect(`${mongoConfig.url}/${mongoConfig.database}`);
 mongoose.Promise = require("bluebird");
+
+getMiddlewares().forEach(middleware => app.use(middleware));
+getApiRoutes(API_V1).forEach(route => app.use(API_PREFIX + API_V1, route));
 
 app.use("/healthcheck", require("express-healthcheck")());
 
